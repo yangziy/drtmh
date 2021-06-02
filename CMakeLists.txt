@@ -10,6 +10,7 @@ set(ROCC_ROOT "." )
 ADD_DEFINITIONS( -std=c++0x)
 
 #set(CMAKE_CXX_COMPILER g++-4.8)
+set(CMAKE_CXX_COMPILER_VERSION 4.8)
 include_directories(./src)
 include_directories(.)
 

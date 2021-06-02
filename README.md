@@ -78,6 +78,7 @@ For build & for run time
 - `sudo apt-get install libzmq3-dev`
 - `sudo apt-get install libtool-bin`
 - `sudo apt-get install cmake` 
+- `cd drtmh`
 - `cmake -DUSE_RDMA=1              //run using RDMA; set it to be 0 if only use TCP for execution`
 
          `-DONE_SIDED_READ=1       // enable RDMA friendly data store`
@@ -90,6 +91,11 @@ For build & for run time
          
          `-DTX_LOG_STYLE=2         // RTX's log style. 1 uses RPC, 2 uses RDMA`
 
+- cd `third_party/rlib && git checkout e04be9219f59c111befb80f518cc93dbdd9b8f80`
+- (Optional) To run `TPC-E` benchmark:
+  - `mkdir tpce_flat_in`
+  - Modify Line 91 of the file `src/app/tpce/tpce_loader.cc` to the **absolute path** of the `tpce_flat_in` folder; the path **must** have a trailing slash `/`.
+  - Download a copy of `TPC-E` benchmark from [here](http://tpc.org/tpc_documents_current_versions/current_specifications5.asp) and place the `flat_input` folder inside the `tpce_flat_in` folder 
 - `make noccocc`
 ------
 
