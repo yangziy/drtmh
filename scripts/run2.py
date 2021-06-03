@@ -31,10 +31,10 @@ original_sigint_handler = signal.getsignal(signal.SIGINT)
 
 ## config parameters and global parameters
 ## default mac set
-mac_set = ["10.0.0.100", "10.0.0.101", "10.0.0.102", "10.0.0.103", "10.0.0.104", "10.0.0.105"]
+mac_set = ["128.42.61.14", "128.42.61.6"]
 proxies = [] ## the proxies used to connect to remote servers
 pwd     = "123"
-mac_num = 1
+mac_num = 2
 
 PORT = 8090
 #port = 9080

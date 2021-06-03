@@ -23,6 +23,8 @@
 
 #include <boost/bind.hpp>
 
+extern size_t current_partition;
+
 using namespace std;
 using namespace rdmaio;
 
@@ -98,7 +100,23 @@ void RWorker::init_rdma(char *rbuffer,uint64_t rbuf_size) {
 
   choose_rnic_port();
 
-  RdmaCtrl::DevIdx idx = cm_->convert_port_idx(use_port_);
+  RdmaCtrl::DevIdx idx;
+  
+  /*
+  Both ds01 and ds09:
+    dev_id: 0 name: mlx5_1 (ds01 / id=1)
+    dev_id: 1 name: mlx5_3
+    dev_id: 2 name: mlx5_0
+    dev_id: 3 name: mlx5_2 (ds09 / id=0)
+  */
+
+  int id = current_partition;
+  if (id == 0) {
+    idx = RdmaCtrl::DevIdx{.dev_id = 3, .port_id=1};
+  } else {
+    idx = RdmaCtrl::DevIdx{.dev_id = 0, .port_id=1};
+  }
+  
   LOG(0) << "worker " << worker_id_ << " uses " << "["
          << idx.dev_id << "," << idx.port_id << "]";
 

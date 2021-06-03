@@ -84,7 +84,7 @@ void TpceLoader::simple_load() {
   /* Init TPCE loading factory */
 
   char  szInDir[64];
-  snprintf(szInDir,64,"/home/wxd/egen_flat_in/"); // used in local data center
+  snprintf(szInDir,64,"/home/ziyang/drtmh_me/tpce_flat_in/"); // used in local data center
   //snprintf(szInDir,64,"/home/ubuntu/egen_flat_in/"); // used in aws
   int   iLoadUnitSize = iDefaultLoadUnitSize;
   bool  bGenerateUsingCache  = true;

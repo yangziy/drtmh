@@ -99,6 +99,8 @@ Two files, `config.xml`, `hosts.xml` must be used to configure the running of Dr
 
 The samples of these two files are listed in `${PATH_TO_DrTMH}/scripts` .
 
+Increase hugepage limit. `echo 10240 > /sys/devices/system/node/node0/hugepages/hugepages-2048kB/nr_hugepages`
+
 ***
 
 ### **Run in a cluster:**
